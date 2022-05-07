@@ -1,12 +1,11 @@
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
 using NSubstitute;
 using SkillFactoryModule19.BLL;
 using SkillFactoryModule19.DAL.Entities;
 using SkillFactoryModule19.DAL.Repositories;
+using SkillFactoryModule19.DAL.Repositories.Users;
 using SkillFactoryModule19.Util;
 using Xunit;
 using ValidationResult = SkillFactoryModule19.Util.ValidationResult;
@@ -126,7 +125,7 @@ public class UserServiceTests
     [Fact]
     public async Task AddMockedTest()
     {
-        var mockedRepository = Substitute.For<IRepository<UserEntity>>();
+        var mockedRepository = Substitute.For<IUserRepository>();
         var mockedValidator = Substitute.For<IValidator<UserEntity>>();
         mockedValidator.Validate(Arg.Any<UserEntity>()).Returns(new ValidationResult());
         
@@ -146,7 +145,7 @@ public class UserServiceTests
         
         var addResult = await userService.AddUser(user);
         
-        await mockedRepository.Received(1).Add(Arg.Any<UserEntity>());
+        await mockedRepository.Received(1).Create(Arg.Any<UserEntity>());
         mockedValidator.Received(1).Validate(Arg.Any<UserEntity>());
         
         addResult.IsSuccessful.Should().BeTrue();
@@ -155,7 +154,7 @@ public class UserServiceTests
     [Fact]
     public async Task AddDuplicatedEMailMockedTest()
     {
-        var mockedRepository = Substitute.For<IRepository<UserEntity>>();
+        var mockedRepository = Substitute.For<IUserRepository>();
         var mockedValidator = Substitute.For<IValidator<UserEntity>>();
         mockedValidator.Validate(Arg.Any<UserEntity>()).Returns(new ValidationResult());
         
@@ -172,11 +171,11 @@ public class UserServiceTests
             FavoriteBook = "Harry Potter",
             FavoriteMovie = "Terminator 2"
         };
-        mockedRepository.Get("MyEmail@mail.ru").Returns(user);
+        mockedRepository.FindByEmail("MyEmail@mail.ru").Returns(user);
 
         var addResult = await userService.AddUser(user);
 
-        mockedRepository.ReceivedCalls().Should().OnlyContain(p => p.GetMethodInfo().Name == nameof(IRepository<UserEntity>.Get));
+        mockedRepository.ReceivedCalls().Should().OnlyContain(p => p.GetMethodInfo().Name == nameof(IUserRepository.FindByEmail));
         addResult.IsSuccessful.Should().BeFalse();
     }
 }

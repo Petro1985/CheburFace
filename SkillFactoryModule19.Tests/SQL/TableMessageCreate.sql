@@ -1,4 +1,4 @@
-create table Message
+create table Messages
 (
     Id          integer not null
         constraint Message_pk

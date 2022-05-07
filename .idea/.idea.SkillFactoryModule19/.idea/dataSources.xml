@@ -8,12 +8,5 @@
       <jdbc-url>jdbc:sqlite:D:\Work\New_era\SkillFactory\SkillFactoryModule19\SkillFactoryModule19\dataBase.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="TestDataBase" uuid="f576da99-6b20-49d3-b101-aaca13c3c591">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/SkillFactoryModule19.Tests/bin/Debug/net6.0/dataBase.db</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
   </component>
 </project>
