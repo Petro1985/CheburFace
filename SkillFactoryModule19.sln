@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillFactoryModule19", "SkillFactoryModule19\SkillFactoryModule19.csproj", "{0E7330F5-E393-4A43-884D-AD81A8A04EBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillFactoryModule19.Tests", "SkillFactoryModule19.Tests\SkillFactoryModule19.Tests.csproj", "{2EE4B5DF-490A-4881-AD91-95492F0FA171}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E7330F5-E393-4A43-884D-AD81A8A04EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E7330F5-E393-4A43-884D-AD81A8A04EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E7330F5-E393-4A43-884D-AD81A8A04EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E7330F5-E393-4A43-884D-AD81A8A04EBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EE4B5DF-490A-4881-AD91-95492F0FA171}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EE4B5DF-490A-4881-AD91-95492F0FA171}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EE4B5DF-490A-4881-AD91-95492F0FA171}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EE4B5DF-490A-4881-AD91-95492F0FA171}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
