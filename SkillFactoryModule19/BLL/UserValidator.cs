@@ -1,10 +1,11 @@
 ﻿using System.Text.RegularExpressions;
+using SkillFactoryModule19.BLL.Models;
 using SkillFactoryModule19.DAL.Entities;
 using SkillFactoryModule19.Util;
 
 namespace SkillFactoryModule19.BLL;
 
-public class UserValidation : IValidator<UserEntity>
+public class UserValidator : IValidator<User>
 {
     private ValidationResult ValidateEMail(string? email)
     {
@@ -37,7 +38,7 @@ public class UserValidation : IValidator<UserEntity>
             .FromCheck(!String.IsNullOrWhiteSpace(name),
                 propertyName + " must be not empty");
     
-    public ValidationResult Validate(UserEntity user)
+    public ValidationResult Validate(User user)
         => ValidatePassword(user.Password)
             .CombineWith(ValidateName(user.FirstName, "First name"))
             .CombineWith(ValidateName(user.LastName, "Last name"))

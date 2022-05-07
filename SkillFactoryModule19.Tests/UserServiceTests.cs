@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using FluentAssertions;
+using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using SkillFactoryModule19.BLL;
+using SkillFactoryModule19.BLL.Models;
 using SkillFactoryModule19.DAL.Entities;
 using SkillFactoryModule19.DAL.Repositories;
 using SkillFactoryModule19.DAL.Repositories.Users;
@@ -17,21 +20,17 @@ public class UserServiceTests
     [Fact]
     public async Task FailValidationTest()
     {
-        SqLiteDapperRepositoryUser userRepository = new SqLiteDapperRepositoryUser(new SqLiteInMemoryDBConnectionFactory());
-        var userService = new UserService(
-            userRepository
-            , new UserValidation());
+        var provider = new TestCheburfaceServiceProvider();
+        var userService = provider.GetRequiredService<UserService>();
 
-        var user = new UserEntity() {
-            Id = 1,
-            FirstName = "", LastName = null,
-            Password = "sdsd",
-            EMail = "dsdfsdf",
+        var user = new User("", null, "sdsd", "dsdfsdf")
+        {
             Photo = "dasd",
             FavoriteBook = "sadasd",
             FavoriteMovie = "asdasd"
         };
-        
+
+
         var expectedResult = new OperationResult<Unit, IReadOnlyCollection<string>>(
             new string[]
             {
@@ -51,16 +50,11 @@ public class UserServiceTests
     [Fact]
     public async Task SuccessValidationTest()
     {
-        SqLiteDapperRepositoryUser userRepository = new SqLiteDapperRepositoryUser(new SqLiteInMemoryDBConnectionFactory());
-        var userService = new UserService(
-            userRepository
-            , new UserValidation());
+        var provider = new TestCheburfaceServiceProvider();
+        var userService = provider.GetRequiredService<UserService>();
 
-        var user = new UserEntity() {
-            Id = 1,
-            FirstName = "Qrwerwer", LastName = "SDFwerwe",
-            Password = "sdsdwQWEqe13",
-            EMail = "MyEmail@mail.ru",
+        var user = new User("Qrwerwer", "SDFwerwe", "sdsdwQWEqe13","MyEmail@mail.ru")
+        {
             Photo = "dasd",
             FavoriteBook = "sadasd",
             FavoriteMovie = "asdasd"
@@ -76,16 +70,11 @@ public class UserServiceTests
     [Fact]
     public async Task AddAndGetUserTest()
     {
-        SqLiteDapperRepositoryUser userRepository = new SqLiteDapperRepositoryUser(new SqLiteInMemoryDBConnectionFactory());
-        var userService = new UserService(
-            userRepository
-            , new UserValidation());
+        var provider = new TestCheburfaceServiceProvider();
+        var userService = provider.GetRequiredService<UserService>();
 
-        var user = new UserEntity() {
-            Id = 15,
-            FirstName = "TestUserFN", LastName = "TestUserLN",
-            Password = "qwe123QWE!@#",
-            EMail = "MyEmail@mail.ru",
+        var user = new User("TestUserFN", "TestUserLN","qwe123QWE!@#", "MyEmail@mail.ru")
+        {
             Photo = "Scenery",
             FavoriteBook = "Harry Potter",
             FavoriteMovie = "Terminator 2"
@@ -101,16 +90,11 @@ public class UserServiceTests
     [Fact]
     public async Task AddExistedEMailTest()
     {
-        SqLiteDapperRepositoryUser userRepository = new SqLiteDapperRepositoryUser(new SqLiteInMemoryDBConnectionFactory());
-        var userService = new UserService(
-            userRepository
-            , new UserValidation());
+        var provider = new TestCheburfaceServiceProvider();
+        var userService = provider.GetRequiredService<UserService>();
 
-        var user = new UserEntity() {
-            Id = 15,
-            FirstName = "TestUserFN", LastName = "TestUserLN",
-            Password = "qwe123QWE!@#",
-            EMail = "MyEmail@mail.ru",
+        var user = new User ("TestUserFN", "TestUserLN","qwe123QWE!@#", "MyEmail@mail.ru")
+        {
             Photo = "Scenery",
             FavoriteBook = "Harry Potter",
             FavoriteMovie = "Terminator 2"
@@ -126,18 +110,18 @@ public class UserServiceTests
     public async Task AddMockedTest()
     {
         var mockedRepository = Substitute.For<IUserRepository>();
-        var mockedValidator = Substitute.For<IValidator<UserEntity>>();
-        mockedValidator.Validate(Arg.Any<UserEntity>()).Returns(new ValidationResult());
+        var mockedValidator = Substitute.For<IValidator<User>>();
+        mockedValidator.Validate(Arg.Any<User>()).Returns(new ValidationResult());
+        
+        var provider = new TestCheburfaceServiceProvider();
+        var mapper = provider.GetRequiredService<IMapper>();
         
         var userService = new UserService(
             mockedRepository
-            , mockedValidator);
+            , mockedValidator, mapper);
 
-        var user = new UserEntity() {
-            Id = 15,
-            FirstName = "TestUserFN", LastName = "TestUserLN",
-            Password = "qwe123QWE!@#",
-            EMail = "MyEmail@mail.ru",
+        var user = new User("TestUserFN", "TestUserLN", "qwe123QWE!@#", "MyEmail@mail.ru")
+        {
             Photo = "Scenery",
             FavoriteBook = "Harry Potter",
             FavoriteMovie = "Terminator 2"
@@ -146,7 +130,7 @@ public class UserServiceTests
         var addResult = await userService.AddUser(user);
         
         await mockedRepository.Received(1).Create(Arg.Any<UserEntity>());
-        mockedValidator.Received(1).Validate(Arg.Any<UserEntity>());
+        mockedValidator.Received(1).Validate(Arg.Any<User>());
         
         addResult.IsSuccessful.Should().BeTrue();
     }
@@ -155,23 +139,25 @@ public class UserServiceTests
     public async Task AddDuplicatedEMailMockedTest()
     {
         var mockedRepository = Substitute.For<IUserRepository>();
-        var mockedValidator = Substitute.For<IValidator<UserEntity>>();
-        mockedValidator.Validate(Arg.Any<UserEntity>()).Returns(new ValidationResult());
+        var mockedValidator = Substitute.For<IValidator<User>>();
+        
+        mockedValidator.Validate(Arg.Any<User>()).Returns(new ValidationResult());
+
+        var provider = new TestCheburfaceServiceProvider();
+        var mapper = provider.GetRequiredService<IMapper>();
         
         var userService = new UserService(
             mockedRepository
-            , mockedValidator);
+            , mockedValidator, mapper);
         
-        var user = new UserEntity() {
-            Id = 15,
-            FirstName = "TestUserFN", LastName = "TestUserLN",
-            Password = "qwe123QWE!@#",
-            EMail = "MyEmail@mail.ru",
+        var user = new User("TestUserFN", "TestUserLN", "qwe123QWE!@#", "MyEmail@mail.ru")
+        {
             Photo = "Scenery",
             FavoriteBook = "Harry Potter",
             FavoriteMovie = "Terminator 2"
         };
-        mockedRepository.FindByEmail("MyEmail@mail.ru").Returns(user);
+        
+        mockedRepository.FindByEmail("MyEmail@mail.ru").Returns(new UserEntity(){EMail = "MyEmail@mail.ru"});
 
         var addResult = await userService.AddUser(user);
 
