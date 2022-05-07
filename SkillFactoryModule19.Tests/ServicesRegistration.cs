@@ -22,7 +22,7 @@ public class TestCheburfaceServiceProvider : IServiceProvider
         _collection.AddSingleton<IValidator<User>, UserValidator>();
         _collection.AddSingleton<ISqLiteConnectionFactory, SqLiteInMemoryDBConnectionFactory>();
 
-        var assembly = Assembly.GetAssembly(typeof(UserProfile));
+        var assembly = Assembly.GetAssembly(typeof(UserMapperProfile));
         _collection.AddAutoMapper(assembly);
 
         _provider = _collection.BuildServiceProvider(new ServiceProviderOptions

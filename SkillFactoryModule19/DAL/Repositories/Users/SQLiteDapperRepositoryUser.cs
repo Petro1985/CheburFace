@@ -46,7 +46,7 @@ public class SqLiteDapperRepositoryUser : BaseSQLiteDapperRepository, IUserRepos
         using var dbConnection = CreateConnection();
 
         string sqlQuery =
-            @"update users set Firstname = :firstname, Lastname = :lastname, Password = :password, email = :email, photo = :photo, FavoriteMovie = :favorite_movie, FavoriteBook = :favorite_book where id = :id";
+            @"update users set Firstname = :Firstname, Lastname = :Lastname, Password = :Password, email = :Email, photo = :Photo, FavoriteMovie = :FavoriteMovie, FavoriteBook = :FavoriteBook where id = :Id";
         await dbConnection.ExecuteAsync(sqlQuery, user);
     }
 

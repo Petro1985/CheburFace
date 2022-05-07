@@ -11,8 +11,9 @@ public class UserEntity{
     public string FavoriteMovie { get; set; }
     public string FavoriteBook { get; set; }
 
-    public UserEntity(string firstName, string lastName, string password, string eMail, string photo, string favoriteMovie, string favoriteBook)
+    public UserEntity(int id, string firstName, string lastName, string password, string eMail, string photo, string favoriteMovie, string favoriteBook)
     {
+        Id = id;
         FirstName = firstName;
         LastName = lastName;
         Password = password;

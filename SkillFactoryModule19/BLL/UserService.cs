@@ -41,9 +41,10 @@ public class UserService
         return new OperationResult<Unit, IReadOnlyCollection<string>>(Unit.Instance);
     }
 
-    public async Task<UserEntity> GetUser(string email)
+    public async Task<User?> GetUser(string email)
     {
-        return await _userRepository.FindByEmail(email);
+        var userEntity = await _userRepository.FindByEmail(email);
+        return _mapper.Map<User>(userEntity);
     }
 
     public async Task<OperationResult<Unit, IReadOnlyCollection<string>>> UpdateUser(User user)
@@ -68,6 +69,5 @@ public class UserService
     }
     public void ObliterateUser(UserEntity user)
     {
-        
     }
 }

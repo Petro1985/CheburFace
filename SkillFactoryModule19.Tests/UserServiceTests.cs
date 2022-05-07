@@ -7,7 +7,6 @@ using NSubstitute;
 using SkillFactoryModule19.BLL;
 using SkillFactoryModule19.BLL.Models;
 using SkillFactoryModule19.DAL.Entities;
-using SkillFactoryModule19.DAL.Repositories;
 using SkillFactoryModule19.DAL.Repositories.Users;
 using SkillFactoryModule19.Util;
 using Xunit;
@@ -29,7 +28,6 @@ public class UserServiceTests
             FavoriteBook = "sadasd",
             FavoriteMovie = "asdasd"
         };
-
 
         var expectedResult = new OperationResult<Unit, IReadOnlyCollection<string>>(
             new string[]
@@ -105,7 +103,61 @@ public class UserServiceTests
 
         secondAddResult.IsSuccessful.Should().BeFalse();
     }
+
+    [Fact]
+    public async Task SuccessfulUpdateUserTest()
+    {
+        var provider = new TestCheburfaceServiceProvider();
+        var userService = provider.GetRequiredService<UserService>();
+
+        var user = new User ("TestUserFN", "TestUserLN","qwe123QWE!@#", "MyEmail@mail.ru")
+        {
+            Photo = "Scenery",
+            FavoriteBook = "Harry Potter",
+            FavoriteMovie = "Terminator 2"
+        };
+
+        await userService.AddUser(user);
+        var user2 = await userService.GetUser("MyEmail@mail.ru");
+        user2!.FirstName = "New Test Name";
+
+        var result = await userService.UpdateUser(user2);
+        result.IsSuccessful.Should().BeTrue();
+    }
     
+    [Fact]
+    public async Task FailUpdateUserTest()
+    {
+        var provider = new TestCheburfaceServiceProvider();
+        var userService = provider.GetRequiredService<UserService>();
+
+        var user = new User ("TestUserFN", "TestUserLN","qwe123QWE!@#", "MyEmail@mail.ru")
+        {
+            Photo = "Scenery",
+            FavoriteBook = "Harry Potter",
+            FavoriteMovie = "Terminator 2"
+        };
+        
+        var user2 = new User ("TestUserFN", "TestUserLN","qwe123QWE!@#", "MyTestEmail@mail.ru")
+        {
+            Photo = "Scenery",
+            FavoriteBook = "Harry Potter",
+            FavoriteMovie = "Terminator 2"
+        };
+
+        await userService.AddUser(user);
+        await userService.AddUser(user2);
+        
+        var user3 = await userService.GetUser("MyEmail@mail.ru");
+        
+        user3!.EMail = "MyTestEmail@mail.ru";
+        var result = await userService.UpdateUser(user3);
+        
+        result.IsSuccessful.Should().BeFalse();
+        result.Error.Should().NotBeNull();
+        result.Error!.Count.Should().Be(1);
+    }
+
     [Fact]
     public async Task AddMockedTest()
     {

@@ -5,7 +5,7 @@ namespace SkillFactoryModule19.BLL.Models;
 
 public class User
 {
-    public int Id { get; }
+    public int Id { get; init; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Password { get; set; }
@@ -27,10 +27,12 @@ public class User
     }
 }
 
-public class UserProfile : Profile
+public class UserMapperProfile : Profile
 {
-    public UserProfile()
+    public UserMapperProfile()
     {
-        CreateMap<User, UserEntity>().ReverseMap();
+        CreateMap<User, UserEntity>()
+            .ForMember(item => item.Id, option => option.MapFrom(user=> user.Id))
+            .ReverseMap();
     }
 } 
