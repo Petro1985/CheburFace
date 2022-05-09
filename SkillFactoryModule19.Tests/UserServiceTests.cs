@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using FluentAssertions;
@@ -8,7 +7,6 @@ using SkillFactoryModule19.BLL;
 using SkillFactoryModule19.BLL.Models;
 using SkillFactoryModule19.DAL.Entities;
 using SkillFactoryModule19.DAL.Repositories.Users;
-using SkillFactoryModule19.Util;
 using Xunit;
 using ValidationResult = SkillFactoryModule19.Util.ValidationResult;
 
@@ -16,55 +14,6 @@ namespace SkillFactoryModule19.Tests;
 
 public class UserServiceTests
 {
-    [Fact]
-    public async Task FailValidationTest()
-    {
-        var provider = new TestCheburfaceServiceProvider();
-        var userService = provider.GetRequiredService<UserService>();
-
-        var user = new User("", null, "sdsd", "dsdfsdf")
-        {
-            Photo = "dasd",
-            FavoriteBook = "sadasd",
-            FavoriteMovie = "asdasd"
-        };
-
-        var expectedResult = new OperationResult<Unit, IReadOnlyCollection<string>>(
-            new string[]
-            {
-                "Password length is less than 8 symbols",
-                "Password must contain at least one digit",
-                "Password must contain lower and upper letters",
-                "First name must be not empty",
-                "Last name must be not empty",
-                "Incorrect EMail",
-            });
-
-        var addResult = await userService.AddUser(user);
-        
-        addResult.Should().BeEquivalentTo(expectedResult);
-    }
-    
-    [Fact]
-    public async Task SuccessValidationTest()
-    {
-        var provider = new TestCheburfaceServiceProvider();
-        var userService = provider.GetRequiredService<UserService>();
-
-        var user = new User("Qrwerwer", "SDFwerwe", "sdsdwQWEqe13","MyEmail@mail.ru")
-        {
-            Photo = "dasd",
-            FavoriteBook = "sadasd",
-            FavoriteMovie = "asdasd"
-        };
-        
-        var expectedResult = new OperationResult<Unit, IReadOnlyCollection<string>>(Unit.Instance);
-
-        var addResult = await userService.AddUser(user);
-        addResult.Should().BeEquivalentTo(expectedResult);
-
-    }
-    
     [Fact]
     public async Task AddAndGetUserTest()
     {
@@ -158,6 +107,83 @@ public class UserServiceTests
         result.Error!.Count.Should().Be(1);
     }
 
+    [Fact]
+    public async Task SuccessfulAuthorisationTest()
+    {
+        var provider = new TestCheburfaceServiceProvider();
+        var userService = provider.GetRequiredService<UserService>();
+
+        var user = new User ("TestUserFN", "TestUserLN","qwe123QWE!@#", "MyEmail@mail.ru")
+        {
+            Photo = "Scenery",
+            FavoriteBook = "Harry Potter",
+            FavoriteMovie = "Terminator 2"
+        };
+        var usersAuthenticationData = new UserAuthenticationData()
+        {
+            Email = "MyEmail@mail.ru",
+            Password = "qwe123QWE!@#",
+        };
+        
+        await userService.AddUser(user);
+        
+        var result = await userService.AuthenticateUser(usersAuthenticationData);
+        
+        result.IsSuccessful.Should().BeTrue();
+        result.Result.Should().BeEquivalentTo(user, options => options.Excluding(item => item.Id));
+    } 
+        
+    [Fact]
+    public async Task IncorrectPasswordAuthorisationTest()
+    {
+        var provider = new TestCheburfaceServiceProvider();
+        var userService = provider.GetRequiredService<UserService>();
+
+        var user = new User ("TestUserFN", "TestUserLN","qwe123QWE!@#", "MyEmail@mail.ru")
+        {
+            Photo = "Scenery",
+            FavoriteBook = "Harry Potter",
+            FavoriteMovie = "Terminator 2"
+        };
+        var usersAuthenticationData = new UserAuthenticationData()
+        {
+            Email = "MyEmail@mail.ru",
+            Password = "qwe12366QWE!@#",
+        };
+        
+        await userService.AddUser(user);
+        
+        var result = await userService.AuthenticateUser(usersAuthenticationData);
+        
+        result.IsSuccessful.Should().BeFalse();
+        result.Error.Should().NotBeNull();
+    } 
+
+    [Fact]
+    public async Task IncorrectEMailAuthorisationTest()
+    {
+        var provider = new TestCheburfaceServiceProvider();
+        var userService = provider.GetRequiredService<UserService>();
+
+        var user = new User ("TestUserFN", "TestUserLN","qwe123QWE!@#", "MyEmail@mail.ru")
+        {
+            Photo = "Scenery",
+            FavoriteBook = "Harry Potter",
+            FavoriteMovie = "Terminator 2"
+        };
+        var usersAuthenticationData = new UserAuthenticationData()
+        {
+            Email = "MyEmai44l@mail.ru",
+            Password = "qwe123QWE!@#",
+        };
+        
+        await userService.AddUser(user);
+        
+        var result = await userService.AuthenticateUser(usersAuthenticationData);
+        
+        result.IsSuccessful.Should().BeFalse();
+    } 
+    
     [Fact]
     public async Task AddMockedTest()
     {

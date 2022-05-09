@@ -67,6 +67,23 @@ public class UserService
         
         return new OperationResult<Unit, IReadOnlyCollection<string>>(Unit.Instance);
     }
+
+    public async Task<OperationResult<User, string>> AuthenticateUser(UserAuthenticationData userAuthenticationData)
+    {
+        var foundUser = await _userRepository.FindByEmail(userAuthenticationData.Email);
+
+        if (foundUser is null)
+        {
+            return new OperationResult<User, string>($"There is no user with email {userAuthenticationData.Email}");
+        }
+
+        if (foundUser.Password != userAuthenticationData.Password)
+        {
+            return new OperationResult<User, string>("Incorrect password");
+        }
+
+        return new OperationResult<User, string>(_mapper.Map<User>(foundUser));
+    }
     public void ObliterateUser(UserEntity user)
     {
     }

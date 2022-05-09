@@ -1,11 +1,8 @@
-﻿using AutoMapper;
-using SkillFactoryModule19.DAL.Entities;
-
-namespace SkillFactoryModule19.BLL.Models;
+﻿namespace SkillFactoryModule19.BLL.Models;
 
 public class User
 {
-    public int Id { get; init; }
+    public int Id { get; private init; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Password { get; set; }
@@ -26,13 +23,3 @@ public class User
         this.EMail = email;
     }
 }
-
-public class UserMapperProfile : Profile
-{
-    public UserMapperProfile()
-    {
-        CreateMap<User, UserEntity>()
-            .ForMember(item => item.Id, option => option.MapFrom(user=> user.Id))
-            .ReverseMap();
-    }
-} 
