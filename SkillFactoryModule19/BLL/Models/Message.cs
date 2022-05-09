@@ -2,9 +2,8 @@
 
 public class Message
 {
-    public Message(int id, string content, int senderId, int recipientId)
+    public Message(string content, int senderId, int recipientId)
     {
-        Id = id;
         Content = content;
         SenderId = senderId;
         RecipientId = recipientId;
@@ -14,4 +13,5 @@ public class Message
     public string Content { get; set; }
     public int SenderId { get; set; }
     public int RecipientId { get; set; }
+    public string RecipientEMail { get; set; }
 }

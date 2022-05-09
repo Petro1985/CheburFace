@@ -3,10 +3,10 @@ using SkillFactoryModule19.DAL.Entities;
 
 namespace SkillFactoryModule19.DAL.Repositories.Messages;
 
-class MessageRepository : BaseSQLiteDapperRepository , IMessageRepository
+public class SqLiteDapperRepositoryMessage : BaseSQLiteDapperRepository , IMessageRepository
 
 {
-    public MessageRepository(ISqLiteConnectionFactory connectionFactory) : base(connectionFactory)
+    public SqLiteDapperRepositoryMessage(ISqLiteConnectionFactory connectionFactory) : base(connectionFactory)
     {
     }
 
@@ -14,7 +14,7 @@ class MessageRepository : BaseSQLiteDapperRepository , IMessageRepository
     {
         var connection = CreateConnection();
         await connection.ExecuteAsync(@"insert into Messages (content, SenderId, RecipientId) 
-                             values(:content,:sender_id,:recipient_id)", messageEntity);
+                             values(:Content,:SenderId,:RecipientId)", messageEntity);
     }
 
     public async Task<ICollection<MessageEntity>> FindBySenderId(int senderId)

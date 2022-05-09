@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using AutoMapper;
 using SkillFactoryModule19.BLL.Models;
+using SkillFactoryModule19.BLL.Validators;
 using SkillFactoryModule19.DAL.Entities;
 using SkillFactoryModule19.DAL.Repositories;
 using SkillFactoryModule19.DAL.Repositories.Users;

@@ -1,9 +1,9 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Reflection.PortableExecutable;
+using System.Text.RegularExpressions;
 using SkillFactoryModule19.BLL.Models;
-using SkillFactoryModule19.DAL.Entities;
 using SkillFactoryModule19.Util;
 
-namespace SkillFactoryModule19.BLL;
+namespace SkillFactoryModule19.BLL.Validators;
 
 public class UserValidator : IValidator<User>
 {

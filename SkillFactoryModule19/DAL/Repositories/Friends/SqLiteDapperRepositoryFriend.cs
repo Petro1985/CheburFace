@@ -3,7 +3,7 @@ using SkillFactoryModule19.DAL.Entities;
 
 namespace SkillFactoryModule19.DAL.Repositories.Friends;
 
-class FriendRepository : BaseSQLiteDapperRepository, IFriendRepository
+class SqLiteDapperRepositoryFriend : BaseSQLiteDapperRepository, IFriendRepository
 {
     public async Task Create(FriendEntity friend)
     {
@@ -24,7 +24,7 @@ class FriendRepository : BaseSQLiteDapperRepository, IFriendRepository
         await connection.ExecuteAsync(@"delete from friends where id = :id", new { id = id });                
     }
 
-    public FriendRepository(ISqLiteConnectionFactory connectionFactory) : base(connectionFactory)
+    public SqLiteDapperRepositoryFriend(ISqLiteConnectionFactory connectionFactory) : base(connectionFactory)
     {
     }
 }

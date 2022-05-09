@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using SkillFactoryModule19.BLL;
 using SkillFactoryModule19.BLL.Models;
+using SkillFactoryModule19.BLL.Validators;
 using SkillFactoryModule19.DAL.Entities;
 using SkillFactoryModule19.DAL.Repositories.Users;
 using Xunit;

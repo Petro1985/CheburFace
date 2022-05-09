@@ -1,6 +1,6 @@
 ﻿using SkillFactoryModule19.Util;
 
-namespace SkillFactoryModule19.BLL;
+namespace SkillFactoryModule19.BLL.Validators;
 
 public interface IValidator<T>
 {
