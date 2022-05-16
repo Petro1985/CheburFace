@@ -1,4 +1,6 @@
-﻿namespace SkillFactoryModule19.BLL.Models;
+﻿using SkillFactoryModule19.DAL.Entities;
+
+namespace SkillFactoryModule19.BLL.Models;
 
 public class User
 {
@@ -10,6 +12,10 @@ public class User
     public string? Photo { get; set; }
     public string? FavoriteMovie { get; set; }
     public string? FavoriteBook { get; set; }
+
+    public User()
+    {
+    }
 
     public User(
         string firstName,

@@ -7,7 +7,7 @@ using SkillFactoryModule19.DAL.Repositories;
 
 namespace SkillFactoryModule19.Tests;
 
-public class SqLiteInMemoryDBConnectionFactory : ISqLiteConnectionFactory
+public class SqLiteInMemoryDbConnectionFactory : ISqLiteConnectionFactory
 {
     private readonly Lazy<IDbConnection> _connection = new (CreateConnection);
 

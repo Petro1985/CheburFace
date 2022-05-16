@@ -4,7 +4,7 @@ namespace SkillFactoryModule19.DAL.Repositories.Friends;
 
 public interface IFriendRepository
 {
-        public Task Create(FriendEntity user);
+        public Task Create(FriendEntity friend);
         public Task<ICollection<FriendEntity>> FindByUserId(int id);
-        public Task Delete(int id);
+        public Task Delete(FriendEntity friend);
 }

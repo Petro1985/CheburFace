@@ -26,13 +26,6 @@ public class MessageService
     public async Task<OperationResult<Unit, IReadOnlyCollection<string>>> Send(Message message)
     {
         var result = _validator.Validate(message);
-        
-        // var foundUser = await _userRepository.FindByEmail(message.RecipientEMail);
-        // if (foundUser is null)
-        // {
-        //     return new OperationResult<Unit, IReadOnlyCollection<string>>(
-        //         new ReadOnlyCollection<string>(new List<string> {$"There is no user with EMail {message.RecipientEMail}"}));
-        // }
 
         if (result.IsError)
         {
@@ -40,8 +33,48 @@ public class MessageService
         }
         
         var messageEntity = _mapper.Map<MessageEntity>(message);
-        await _messageRepository.Create(messageEntity);
 
+        try
+        {
+            await _messageRepository.Create(messageEntity);
+        }
+        catch (Exception e)
+        {
+            return new OperationResult<Unit, IReadOnlyCollection<string>>(new List<string>
+                {"Didn't manage to create new message"});
+        }
         return new OperationResult<Unit, IReadOnlyCollection<string>>(Unit.Instance);
     }
+
+    public async Task<ICollection<Message>> GetMessagesBySender(int senderId)
+    {
+        var messages = await _messageRepository.FindByRecipientId(senderId);
+
+        return messages
+            .Select(_mapper.Map<Message>)
+            .ToList();
+    }
+    public async Task<ICollection<Message>> GetMessagesByRecipient(int recipientId)
+    {
+        var messages = await _messageRepository.FindByRecipientId(recipientId);
+
+        return messages
+            .Select(_mapper.Map<Message>)
+            .ToList();
+    }
+    
+    public async Task<ICollection<Message>> GetMessages(int userId)
+    {
+        var messages = await _messageRepository.FindAllMessages(userId);
+
+        return messages
+            .Select(_mapper.Map<Message>)
+            .ToList();
+    }
+
+    public async Task ObliterateMessage(int id)
+    {
+        await _messageRepository.DeleteById(id);
+    }
+    
 }

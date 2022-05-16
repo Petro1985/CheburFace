@@ -1,11 +1,11 @@
 create table Friends
 (
     Id       integer not null
-        constraint table_name_pk
-            primary key autoincrement,
-    UserId   integer not null
-        references Users,
-    FriendId integer not null
-        references Users
+    constraint friend_pk
+        primary key autoincrement,
+    UserId   integer not null,
+    FriendId integer not null,
+    foreign key (UserId) references Users(Id),
+    foreign key (FriendId) references Users(Id)
 );
 

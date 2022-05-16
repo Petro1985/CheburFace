@@ -25,6 +25,15 @@ public class SqLiteDapperRepositoryMessage : BaseSQLiteDapperRepository , IMessa
             .ToList();
     }
 
+    public async Task<ICollection<MessageEntity>> FindAllMessages(int userId)
+    {
+        var connection = CreateConnection();
+        return (await connection.QueryAsync<MessageEntity>(
+                "select * from messages where SenderId = :userId or RecipientId = :userId", 
+                new { userId = userId}))
+            .ToList();
+    }
+
     public async Task<ICollection<MessageEntity>> FindByRecipientId(int recipientId)
     {
         var connection = CreateConnection();

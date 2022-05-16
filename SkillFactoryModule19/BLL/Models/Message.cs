@@ -13,5 +13,4 @@ public class Message
     public string Content { get; set; }
     public int SenderId { get; set; }
     public int RecipientId { get; set; }
-    public string RecipientEMail { get; set; }
 }

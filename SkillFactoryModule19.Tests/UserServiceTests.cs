@@ -197,7 +197,7 @@ public class UserServiceTests
         
         var userService = new UserService(
             mockedRepository
-            , mockedValidator, mapper);
+            , mockedValidator, mapper, new PhotoRepository());
 
         var user = new User("TestUserFN", "TestUserLN", "qwe123QWE!@#", "MyEmail@mail.ru")
         {
@@ -227,7 +227,7 @@ public class UserServiceTests
         
         var userService = new UserService(
             mockedRepository
-            , mockedValidator, mapper);
+            , mockedValidator, mapper, new PhotoRepository());
         
         var user = new User("TestUserFN", "TestUserLN", "qwe123QWE!@#", "MyEmail@mail.ru")
         {

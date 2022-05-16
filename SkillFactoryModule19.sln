@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillFactoryModule19", "Ski
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillFactoryModule19.Tests", "SkillFactoryModule19.Tests\SkillFactoryModule19.Tests.csproj", "{2EE4B5DF-490A-4881-AD91-95492F0FA171}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheburFace", "CheburFace\CheburFace.csproj", "{2D1EB7EB-F995-49B6-8667-9FB8B418A484}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{2EE4B5DF-490A-4881-AD91-95492F0FA171}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EE4B5DF-490A-4881-AD91-95492F0FA171}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EE4B5DF-490A-4881-AD91-95492F0FA171}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D1EB7EB-F995-49B6-8667-9FB8B418A484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D1EB7EB-F995-49B6-8667-9FB8B418A484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D1EB7EB-F995-49B6-8667-9FB8B418A484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D1EB7EB-F995-49B6-8667-9FB8B418A484}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
