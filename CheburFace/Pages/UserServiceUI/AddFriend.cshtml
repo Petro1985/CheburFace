@@ -1,0 +1,27 @@
+﻿@page
+@model CheburFace.Pages.UserServiceUI.AddFriend
+
+@{
+    Layout = "Shared/_Layout_logged";
+}
+
+<div class="text-center">
+    <img src="/Resources/Friends.png" alt="Friend image" class="text-center mx-auto"/>
+</div>
+
+<div class="mx-auto" >
+    <form class="" method="post">
+        <fieldset class="">
+            <legend class="text-center">Давай дружить</legend>
+            <table class="mx-auto" >
+                <tr>
+                    <td><label for="fname" class="mb-2">Почта друга:</label></td>
+                    <td><input asp-for="FriendEmail" type="text" id="email" name="FriendEmail" placeholder="MyFriendMail@@CheburFace.ru" autofocus="autofocus" class="ms-3 mb-2"></td>
+                </tr>
+            </table>
+            <input type="submit" value="Добавить друга" class="row mt-3 mx-auto shadow">
+        </fieldset>
+    </form>
+</div>    
+<p class="mx-auto text-center" style="color: red; font-size: 30px">@Model.Message</p>
+

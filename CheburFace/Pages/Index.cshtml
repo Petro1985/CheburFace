@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <img src = "Images/WelcomeScreen.jpg" alt="Greeting"/>
+</div>
+<div class="mx-auto" >
+    <form class="" method="post">
+        <fieldset class="">
+            <legend class="text-center">Добро пожаловать</legend>
+            <table class="mx-auto" >
+                <tr>
+                    <td><label for="fname" class="mb-2">Почта:</label></td>
+                    <td><input type="text" id="email" name="Email" placeholder="MyMail@@CheburFace.ru" autofocus="autofocus" class="ms-3 mb-2"></td>
+                </tr>
+                <tr>
+                    <td><label for="lname" class="">Пароль:</label></td>
+                    <td><input type="password" id="password" name="Password" value="" class="ms-3"></td>
+                </tr>
+            </table>
+            <input type="submit" value="Залогиниться" class="row mt-3 mx-auto shadow">
+        </fieldset>
+    </form>
+</div>
+<p class="mx-auto text-center" style="color: red; font-size: 30px">@Model.Message</p>

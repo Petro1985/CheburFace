@@ -1,0 +1,46 @@
+﻿@page
+@model RegistrationModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <img src = "Images/WelcomeScreen.jpg" alt="Greeting"/>
+</div>
+<div class="mx-auto" >
+    <form class="" method="post">
+        <fieldset class="">
+            <legend class="text-center">Введите данны для регистрации</legend>
+            <table class="mx-auto" >
+                <tr>
+                    <td><label for="fname" class="mb-2">Имя:</label></td>
+                    <td><input type="text" asp-for="UserData.FirstName" id="fname" name="FirstName" placeholder="Моё имя" autofocus="autofocus" class="ms-3 mb-2"></td>
+                </tr>
+                <tr>
+                    <td><label for="lname" class="mb-2">Фамилия:</label></td>
+                    <td><input type="text" asp-for="UserData.LastName" id="lname" name="LastName" placeholder="Моя фамилия" class="ms-3 mb-2"></td>
+                </tr>
+                <tr>
+                    <td><label for="email" class="mb-2">Почта:</label></td>
+                    <td><input type="text" asp-for="UserData.EMail" id="email" name="Email" placeholder="MyMail@@CheburFace.ru" autofocus="autofocus" class="ms-3 mb-2"></td>
+                </tr>
+                <tr>
+                    <td><label for="password" class="mb-2">Пароль:</label></td>
+                    <td><input type="password" asp-for="UserData.Password" id="password" name="Password" value="" class="ms-3 mb-2"></td>
+                </tr>
+                <tr>
+                    <td><label for="password" class="mb-2">Повторить пароль:</label></td>
+                    <td><input type="password" asp-for="PasswordRepetition" id="passwordconf" name="PasswordRepetition" value="" class="ms-3 mb-2"></td>
+                </tr>
+            </table>
+            <input type="submit" value="Создать пользователя" class="row mt-3 mx-auto shadow">
+        </fieldset>
+    </form>
+</div>
+<p class="mx-auto text-center" style="color: red; font-size: 30px">
+@foreach (var str in Model.Errors)
+{
+    @str<br>
+}
+</p>
+

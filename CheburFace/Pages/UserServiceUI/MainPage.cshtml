@@ -1,0 +1,117 @@
+﻿@page
+@using System.Net
+@model CheburFace.Pages.UserServiceUI.MainPage
+
+@{
+    Layout = "Shared/_Layout_logged";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 bg-opacity-75" style="background-image: url(@Html.Raw("/Resources/beresta.png")">
+            <label class="mb-3" style="font-size: x-large; font-weight: bold ; color: #523e02">Текущий пользователь:</label><br/>
+            <label class="mb-1" style="font-size: x-large; font-weight: bold ; color: #0a53be">Имя: @Model.CurrentUser!.FirstName</label><br/>
+            <label class="" style="font-size: x-large; font-weight: bold ; color: #0a53be">Фамилия: @Model.CurrentUser.LastName</label>
+
+        
+            <p class="mt-5 text-center" style="color: #664d03; font-size: x-large; font-weight: bold">Сообщения</p>
+            <ul class="mt-2 mb-2 list-group col-12 mx-auto" style="list-style-type: none; font-size: large">
+                @foreach (var message in Model.Messages)
+                {
+                    @if (message.IsFromMe)
+                    {
+                        <div class="container">
+                            <div class="row col-11 ms-auto">
+                                <div class="col-11 p-0">
+                                    <li class="mt-2 list-group-item-dark mb-0 ms-auto mr-0 ps-2">кому @message.Recipient:</li>
+                                </div>
+                                <div class="col-1 p-0 mt-2" style="background-color: #badce3">
+                                    <form asp-route-id="@message.Id" method="post" asp-page-handler="DeleteMessage">
+                                        <button class="m-0 p-0 b-0 mt-1 mx-auto row col-12 text-center btn-close" as type="submit" style="border: 0;"></button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row col-11 ms-auto">
+                                <li class="list-group-item" style="color: #146c43">@message.Content</li>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+
+                        <div class="container">
+                            <div class="row col-11 me-auto">
+                                <div class="col-11 p-0">
+                                    <li class="mt-2 list-group-item-dark mb-0 col-12 ps-2">от @message.Sender:</li>
+                                </div>
+                                <div class="col-1 p-0 mt-2" style="background-color: #badce3">
+                                    <form asp-page-handler="DeleteMessage" asp-route-id="@message.Id" method="post">
+                                        <button class="m-0 p-0 b-0 mt-1 mx-auto row col-12 text-center btn-close" as type="submit" style="border: 0;"></button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row col-11 me-auto">
+                                <li class="list-group-item" style="color: #146c43">@message.Content</li>
+                            </div>
+                        </div>
+                    }
+                }
+            </ul>
+            <form method="post">
+                <textarea name="Message" class="col-12" data-val="true" data-val-required="The Message field is required." id="Message" style="height: 100px;"></textarea>
+                <div class="row-cols-2 col-12">
+                    <div class="row col-12 mx-auto">
+                        <input asp-for="RecipientEmail" type="text" placeholder="Почта получателя" name="RecipientEmail" class="row-1 col-7" data-val="true" data-val-required="The Recipient field is required." id="RecipientEmail">
+                        <input type="submit" asp-page-handler="SendMessage" value="Отправить сообщение!" class="col-4 ms-auto btn btn-primary" >
+                    </div>
+                </div>
+            </form>
+            <p class="mx-auto text-center" style="color: red; font-size: 30px">
+                @foreach (var str in Model.ErrorMessage)
+                {
+                    @str<br>
+                }
+            </p>
+        
+        </div>
+        
+        <div class="col-4">
+            <div class="row">
+                <img alt="It's your photo" class="img-thumbnail d-block mx-auto" style="rotate: 90deg" src="@Url.Content("~/Images/" + Model.CurrentUser.Id + ".jpg")" width="300" height="300"/><br>
+                <form method="post" asp-page-handler="LoadPhoto" enctype="multipart/form-data">
+                    <input type="file" asp-for="Upload"/>
+                    <input type="submit" class="btn btn-primary" content="Загрузить"/>
+                </form>
+                <p class="mt-5 text-center" style="font-size: large; font-weight: bold">Список друзей</p>
+                <ul class="mt-2 list-group-item col-6 mx-auto ">
+
+                    @foreach (var friend in Model.Friends)
+                    {
+                        <a class="mt-2 list-group-item list-group-item-action @if (Model.FriendFilter == friend.Id) {@Html.Raw("active")}" href="/UserServiceUI/MainPage?FriendFilter=@friend.Id&RecipientEmail=@friend.EMail">@friend.FirstName @friend.LastName</a>
+                    }
+
+                </ul>
+            </div>
+            <div class="row">
+                <div class="mx-auto mt-3 text-center">
+                    <a href="/UserServiceUI/AddFriend">
+                        <button class="shadow btn btn-primary" type="button">Хочу больше друзей!</button>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        <div class="col-5">
+        </div>
+    </div>
+</div>
+
+
+
+

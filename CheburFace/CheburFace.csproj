@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\Images" />
+      <Folder Include="wwwroot\photos" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SkillFactoryModule19\SkillFactoryModule19.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Pages\Resources\BackGround.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Include="wwwroot\Resources\BackGround.png" />
+    </ItemGroup>
+
+</Project>
