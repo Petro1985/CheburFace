@@ -20,39 +20,22 @@
                 {
                     @if (message.IsFromMe)
                     {
-                        <div class="container">
-                            <div class="row col-11 ms-auto">
-                                <div class="col-11 p-0">
-                                    <li class="mt-2 list-group-item-dark mb-0 ms-auto mr-0 ps-2">кому @message.Recipient:</li>
-                                </div>
-                                <div class="col-1 p-0 mt-2" style="background-color: #badce3">
-                                    <form asp-route-id="@message.Id" method="post" asp-page-handler="DeleteMessage">
-                                        <button class="m-0 p-0 b-0 mt-1 mx-auto row col-12 text-center btn-close" as type="submit" style="border: 0;"></button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="row col-11 ms-auto">
-                                <li class="list-group-item" style="color: #146c43">@message.Content</li>
-                            </div>
+                        <div class="message-right">
+                            <div class="message-header">кому @message.Recipient:</div>
+                            <form asp-route-id="@message.Id" method="post" asp-page-handler="DeleteMessage">
+                                <button class="del-image" type="submit"></button>
+                            </form>
+                            <div class="message-text">@message.Content</div>
                         </div>
                     }
                     else
                     {
-
-                        <div class="container">
-                            <div class="row col-11 me-auto">
-                                <div class="col-11 p-0">
-                                    <li class="mt-2 list-group-item-dark mb-0 col-12 ps-2">от @message.Sender:</li>
-                                </div>
-                                <div class="col-1 p-0 mt-2" style="background-color: #badce3">
-                                    <form asp-page-handler="DeleteMessage" asp-route-id="@message.Id" method="post">
-                                        <button class="m-0 p-0 b-0 mt-1 mx-auto row col-12 text-center btn-close" as type="submit" style="border: 0;"></button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="row col-11 me-auto">
-                                <li class="list-group-item" style="color: #146c43">@message.Content</li>
-                            </div>
+                        <div class="message-left">
+                            <div class="message-header">от @message.Sender:</div>
+                            <form asp-route-id="@message.Id" method="post" asp-page-handler="DeleteMessage">
+                                <button class="del-image" type="submit"></button>
+                            </form>
+                            <div class="message-text">@message.Content</div>
                         </div>
                     }
                 }

@@ -15,6 +15,71 @@ html {
 
 body {
   margin-bottom: 60px;
-  background-image: linear-gradient(rgba(100, 100, 255, 0.5), rgba(100, 100, 100, 0.5)),
-  url("/Resources/BackGround.png");
+  background-image: linear-gradient(rgba(100, 100, 255, 0.5), rgba(100, 100, 100, 0.5)), url("/Resources/BackGround.png");
+}
+
+.message-left, .message-right
+{
+  width: 90%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.message-left
+{
+  margin-right: auto;
+}
+
+.message-right
+{
+  margin-left: auto;
+}
+
+.message-header
+{
+  background-color: rgb(211, 210, 210);
+  height: 2rem;
+  width: calc(100% - 25px);
+  border-top-left-radius: 10px;
+  border-bottom: none;
+  display: flex;
+  float: left;
+  border-bottom: 2px #cccccc groove;
+  padding-left: 10px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+}
+.del-image, .del-image:hover
+{
+  float: right;
+  height: 2rem;
+  width: 25px;
+  border: none;
+  border-bottom: 2px #cccccc groove;
+}
+.del-image {
+  background: rgb(211, 210, 210) url('/Images/Rubbish_small.png') no-repeat;
+  background-size: 1.35rem 1.45rem;
+  background-position-y: center;
+}
+.del-image:hover
+{
+  background: rgb(211, 210, 210) url('/Images/Rubbish_small_red.png') no-repeat;
+  background-size: 1.35rem 1.45rem;
+  background-position-y: center;
+}
+
+.message-text
+{
+  cursor: default;
+  background-color: rgba(254, 254, 254, 0.81);
+  display: block;
+  padding: 2.5rem 1rem 0.7rem 1rem;
+  border-top: none;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  /*border: 2px #5c636a groove;*/
+  outline: 2px #cccccc groove;
+  outline-offset: 0px;
 }
