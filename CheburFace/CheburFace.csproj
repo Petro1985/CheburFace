@@ -19,7 +19,12 @@
       <None Update="Pages\Resources\BackGround.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
+      <None Include="wwwroot\css\MainPage.css" />
       <None Include="wwwroot\Resources\BackGround.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="wwwroot\Resources\Rubbish_small.png" />
     </ItemGroup>
 
 </Project>
