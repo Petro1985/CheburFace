@@ -8,11 +8,10 @@
 
     <ItemGroup>
       <Folder Include="wwwroot\Images" />
-      <Folder Include="wwwroot\photos" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SkillFactoryModule19\SkillFactoryModule19.csproj" />
+      <ProjectReference Include="..\CheburFaceBack\CheburFaceBack.csproj" />
     </ItemGroup>
 
     <ItemGroup>

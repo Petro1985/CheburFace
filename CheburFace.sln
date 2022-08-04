@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillFactoryModule19", "SkillFactoryModule19\SkillFactoryModule19.csproj", "{0E7330F5-E393-4A43-884D-AD81A8A04EBC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheburFaceBack", "CheburFaceBack\CheburFaceBack.csproj", "{0E7330F5-E393-4A43-884D-AD81A8A04EBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillFactoryModule19.Tests", "SkillFactoryModule19.Tests\SkillFactoryModule19.Tests.csproj", "{2EE4B5DF-490A-4881-AD91-95492F0FA171}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheburFaceBack.Tests", "CheburFaceBack.Tests\CheburFaceBack.Tests.csproj", "{2EE4B5DF-490A-4881-AD91-95492F0FA171}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheburFace", "CheburFace\CheburFace.csproj", "{2D1EB7EB-F995-49B6-8667-9FB8B418A484}"
 EndProject

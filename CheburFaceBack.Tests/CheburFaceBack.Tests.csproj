@@ -5,6 +5,8 @@
         <Nullable>enable</Nullable>
 
         <IsPackable>false</IsPackable>
+
+        <RootNamespace>SkillFactoryModule19.Tests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -23,7 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SkillFactoryModule19\SkillFactoryModule19.csproj" />
+      <ProjectReference Include="..\CheburFaceBack\CheburFaceBack.csproj" />
     </ItemGroup>
 
     <ItemGroup>
