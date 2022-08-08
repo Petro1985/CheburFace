@@ -9,69 +9,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8e064c4-7a11-4fc3-b07d-40c33be92318" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.CheburFace/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.CheburFace/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.CheburFace/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.CheburFace/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.CheburFace/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.CheburFace/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SkillFactoryModule19/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CheburFace.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SkillFactoryModule19/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SkillFactoryModule19/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SkillFactoryModule19/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SkillFactoryModule19/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SkillFactoryModule19/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SkillFactoryModule19/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SkillFactoryModule19/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CheburFace/CheburFace.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFace/CheburFace.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19.Tests/FriendServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack.Tests/FriendServiceTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19.Tests/MessageServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack.Tests/MessageServiceTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19.Tests/NotClosableConnectionDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack.Tests/NotClosableConnectionDecorator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19.Tests/SQL/TableFriendsCreate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack.Tests/SQL/TableFriendsCreate.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19.Tests/SQL/TableMessageCreate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack.Tests/SQL/TableMessageCreate.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19.Tests/SQL/TableUsersCreate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack.Tests/SQL/TableUsersCreate.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19.Tests/SkillFactoryModule19.Tests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack.Tests/CheburFaceBack.Tests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19.Tests/SqLiteInMemoryDBConnectionFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack.Tests/SqLiteInMemoryDBConnectionFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19.Tests/TestCheburfaceServiceProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack.Tests/TestCheburfaceServiceProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19.Tests/UserServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack.Tests/UserServiceTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19.Tests/ValidationTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack.Tests/ValidationTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19.sln" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFace.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/Exceptions/UserNotFoundException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/Exceptions/UserNotFoundException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/Exceptions/WrongPasswordException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/Exceptions/WrongPasswordException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/FriendService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/FriendService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/MessageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/MessageService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/Models/Friend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/Models/Friend.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/Models/MapperProfiles/FriendMapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/Models/MapperProfiles/FriendMapperProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/Models/MapperProfiles/MessageMapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/Models/MapperProfiles/MessageMapperProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/Models/MapperProfiles/UserMapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/Models/MapperProfiles/UserMapperProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/Models/Message.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/Models/Message.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/Models/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/Models/UserAuthenticationData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/Models/UserAuthenticationData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/Models/UserRegistrationData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/Models/UserRegistrationData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/Validators/IValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/Validators/IValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/Validators/MailValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/Validators/MailValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/Validators/MessageValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/Validators/MessageValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/BLL/Validators/UserValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/BLL/Validators/UserValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/DAL/Entities/FriendEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/DAL/Entities/FriendEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/DAL/Entities/MessageEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/DAL/Entities/MessageEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/DAL/Entities/UserEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/DAL/Entities/UserEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/DAL/Repositories/BaseSQLiteDapperRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/DAL/Repositories/BaseSQLiteDapperRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/DAL/Repositories/Friends/IFriendRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/DAL/Repositories/Friends/IFriendRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/DAL/Repositories/Friends/SqLiteDapperRepositoryFriend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/DAL/Repositories/Friends/SqLiteDapperRepositoryFriend.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/DAL/Repositories/ISqLiteConnectionFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/DAL/Repositories/ISqLiteConnectionFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/DAL/Repositories/Messages/IMessageRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/DAL/Repositories/Messages/IMessageRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/DAL/Repositories/Messages/SqLiteDapperRepositoryMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/DAL/Repositories/Messages/SqLiteDapperRepositoryMessage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/DAL/Repositories/SqLiteFileDBConnectionFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/DAL/Repositories/SqLiteFileDBConnectionFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/DAL/Repositories/Users/IUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/DAL/Repositories/Users/IUserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/DAL/Repositories/Users/SQLiteDapperRepositoryUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/DAL/Repositories/Users/SQLiteDapperRepositoryUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/ServiceCollectionExt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/ServiceCollectionExt.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/SkillFactoryModule19.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/CheburFaceBack.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/Util/OperationResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/Util/OperationResult.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/Util/Unit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/Util/Unit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/Util/ValidationResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/Util/ValidationResult.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkillFactoryModule19/dataBase.db" beforeDir="false" afterPath="$PROJECT_DIR$/CheburFaceBack/dataBase.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SkillFactoryModule19/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SkillFactoryModule19/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +222,7 @@
       <workItem from="1653735972948" duration="10797000" />
       <workItem from="1654442361026" duration="761000" />
       <workItem from="1655744594028" duration="962000" />
-      <workItem from="1659623826814" duration="673000" />
+      <workItem from="1659623826814" duration="1173000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1651925701526</created>
@@ -377,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653761038455</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Start of big refactoring">
+      <created>1659624718998</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1659624718998</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,7 +356,8 @@
     <MESSAGE value="Refactoring of message view has been made" />
     <MESSAGE value="Forgot one image" />
     <MESSAGE value="Got rid of bootstrap. Trying to do it by my own styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got rid of bootstrap. Trying to do it by my own styles" />
+    <MESSAGE value="Start of big refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start of big refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,12 +1,9 @@
 ﻿@page
-@using System.Net
 @model CheburFace.Pages.UserServiceUI.MainPage
 
 @{
-    <link rel="stylesheet" href="~/css/MainPage.css" asp-append-version="true"/>
     Layout = "Shared/_Layout_logged";
 }
-
 
 <div class="main-divider">
     <div class="left-part bg-opacity-75" style="background-image: url(@Html.Raw("/Resources/beresta.png")">
@@ -74,18 +71,24 @@
     </div>
     
     <div class="right-part">
-        <div class="">
-            <div class="photo">
-                <img alt="It's your photo" src="@Url.Content("~/Images/" + Model.CurrentUser.Id + ".jpg")"/><br>
+        <div class="d-flex flex-column">
+            <div>
+                <div class="photo">
+                    <img class="col-12" alt="It's your photo" src="@Url.Content("~/Images/" + Model.CurrentUser.Id + ".jpg")"/>
+                </div>
             </div>
-            <form class="flex-container" method="post" asp-page-handler="LoadPhoto" enctype="multipart/form-data">
-                <label for="UpFile" class="my-button">Выбрать фото</label>
-                <input style="visibility:hidden; position: absolute;" type="file" asp-for="Upload" id="UpFile" accept=".jpg"/>
-                <label for="applyPhoto" class="my-apply-button">Применить</label>
-                <input style="visibility:hidden;position: absolute;" type="submit" id="applyPhoto"/>
+            <form class="d-flex flex-row justify-content-between" method="post" asp-page-handler="LoadPhoto" enctype="multipart/form-data">
+                <label for="UpFile" class="my-button p-1">
+                    <span>Выбрать фото</span>
+                </label>
+                <input style="display: none;" type="file" asp-for="Upload" id="UpFile" accept=".jpg"/>
+                <label for="applyPhoto" class="my-button p-1">
+                    <span>Применить</span>
+                </label>
+                <input style="display: none;" type="submit" id="applyPhoto"/>
             </form>
-            <p class="">Список друзей</p>
-            <ul class="">
+            <p class="text-center mt-3 mb-1" style="font-size: 1.3rem; font-weight: 900;">Список друзей</p>
+            <ul class="mx-auto p-0 col-11">
 
                 @foreach (var friend in Model.Friends)
                 {
@@ -93,13 +96,9 @@
                 }
 
             </ul>
-        </div>
-        <div class="row">
-            <div class="">
-                <a href="/UserServiceUI/AddFriend">
-                    <button class="shadow btn btn-primary" type="button">Хочу больше друзей!</button>
-                </a>
-            </div>
+            <a href="/UserServiceUI/AddFriend">
+                <button class="d-flex shadow btn btn-primary mx-auto" type="button">Хочу больше друзей!</button>
+            </a>
         </div>
         
     </div>

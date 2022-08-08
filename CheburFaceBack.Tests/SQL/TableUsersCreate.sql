@@ -9,6 +9,7 @@ create table Users
     EMail         text,
     Photo         text,
     FavoriteMovie text,
-    FavoriteBook  text
+    FavoriteBook  text,
+    DateOfBirth   text
 );
 

@@ -10,16 +10,55 @@
 }
 
 .right-part {
-    width: 300px;
     position: fixed;
-    right: 10vh;
-
+    right: 0;
+    width: 25%;
+    max-width: 300px;
+    
+    margin-right: 10px;
 }
 
 .left-part {
+    min-width: calc(100% - 300px);
+    width: 70%;
     padding: 1rem;
-    margin-left: 10vh;
-    margin-right: calc(10vh + 350px);
+}
+@media (min-width: 576px) {
+    .right-part
+    {
+        margin-right: 30px;
+    }
+}
+@media (min-width: 768px) {
+    .right-part
+    {
+        margin-right: 40px;
+    }
+}
+@media (min-width: 992px) {
+    .right-part
+    {
+        margin-right: 40px;
+    }
+}
+@media (min-width: 1200px) {
+    .right-part
+    {
+        margin-right: 40px;
+    }
+}
+@media (min-width: 1400px) {
+    .right-part 
+    {
+        margin-right: 40px;
+    }
+}
+
+@media (min-width: 1500px) {
+    .right-part
+    {
+        margin-right: 150px;
+    }
 }
 
 .User-header-grid {
@@ -93,44 +132,39 @@
 }
 
 .photo {
+    position: relative;
     margin-bottom: 2rem;
+    width: 100%
 }
 
-.photo::before {
+.photo::after {
     content: "";
-    width: 320px;
-    height: 320px;
+    width: 110%;
+    height: 110%;
     background-image: url("/Resources/Photo_Frame.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover ;
     
     position: absolute;
-    left: -10px;
-    top: -10px;
-    display: block;
-    box-sizing: border-box;
+    left: -5%;
+    top: -5%;
 }
 
 .my-button {
     cursor: pointer;
-    display: flex;
 
-    margin-top: 1rem;
     border-radius: 10px;
-    height: 3.8rem;
-    width: 7rem;
-
+    height: 2.8rem;
     background-color: #0a53be;
 
     border: 3px #cccccc double;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: #4aa212;
     
     text-align: center;
-
+    
     transition: background-color 0.5s linear, background-position 0.5s linear;
-    box-sizing: border-box;
 }
 
 .my-apply-button {
